@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import API_BASE_URL from '../config';
 
 
 function ClientsList() {
   const [clients, setClients] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchClients = async () => {
@@ -24,7 +22,6 @@ function ClientsList() {
   return (
     <div>
       <h2>Clients List</h2>
-      <button onClick={() => navigate('/')}>Volver al Home</button>
       <table>
         <thead>
           <tr>

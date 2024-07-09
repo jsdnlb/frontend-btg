@@ -11,6 +11,7 @@ function HomePage() {
           <li><Link to="/cancel">Cancel a Subscription</Link></li>
           <li><Link to="/transactions">View Transaction History</Link></li>
           <li><Link to="/clients">View Clients</Link></li> 
+          <li><Link to="/funds">View Funds</Link></li> 
         </ul>
       </nav>
     </div>

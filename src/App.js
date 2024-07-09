@@ -5,6 +5,7 @@ import SubscribePage from './pages/SubscribePage';
 import CancelPage from './pages/CancelPage';
 import TransactionsPage from './pages/TransactionsPage';
 import ClientsPage from './pages/ClientsPage';
+import FundsPage from './pages/FundsPage'; 
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/cancel" element={<CancelPage />} />
         <Route path="/transactions" element={<TransactionsPage />} />
         <Route path="/clients" element={<ClientsPage />} />
+        <Route path="/funds" element={<FundsPage />} />
       </Routes>
     </Router>
   );
