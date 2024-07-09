@@ -1,40 +1,89 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import API_BASE_URL from '../config';
+import Swal from 'sweetalert2';
 
 function SubscriptionForm() {
-  const [client_id, setClientId] = useState('');
-  const [fund_id, setFundId] = useState('');
+  const [clients, setClients] = useState([]);
+  const [funds, setFunds] = useState([]);
+  const [clientId, setClientId] = useState('');
+  const [fundId, setFundId] = useState('');
   const [amount, setAmount] = useState('');
   const [notification, setNotification] = useState('Email');
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  useEffect(() => {
+    const fetchClients = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/clients/all`);
+        setClients(response.data);
+      } catch (error) {
+        console.error('Error fetching clients:', error.response ? error.response.data : error.message);
+      }
+    };
+
+    const fetchFunds = async () => {
+      try {
+        const response = await axios.get(`${API_BASE_URL}/funds/all`);
+        setFunds(response.data);
+      } catch (error) {
+        console.error('Error fetching funds:', error.response ? error.response.data : error.message);
+      }
+    };
+
+    fetchClients();
+    fetchFunds();
+  }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:8000/subscribe', {
-        client_id,
-        fund_id,
+      await axios.post(`${API_BASE_URL}/funds/subscribe/`, {
+        client_id: clientId,
+        fund_id: fundId,
         amount: parseFloat(amount),
         notification,
       });
-      console.log('Subscription successful:', response.data);
+      Swal.fire({
+        title: "Subscription successful!",
+        text: `Customer has subscribed to fund, for the amount of ${amount}`,
+        icon: "success"
+      });
     } catch (error) {
-      console.error('Error subscribing:', error.response ? error.response.data : error.message);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error subscribing to fund',
+        text: error.response.data.detail,
+      });
     }
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Client ID:</label>
-        <input type="text" value={client_id} onChange={(e) => setClientId(e.target.value)} />
+        <label htmlFor="client">Client:</label>
+        <select id="client" value={clientId} onChange={(e) => setClientId(e.target.value)}>
+          <option value="">Select a client</option>
+          {clients.map((client) => (
+            <option key={client.id} value={client.id}>
+              {client.name} - {client.balance}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
-        <label>Fund ID:</label>
-        <input type="text" value={fund_id} onChange={(e) => setFundId(e.target.value)} />
+        <label htmlFor="fund">Fund:</label>
+        <select id="fund" value={fundId} onChange={(e) => setFundId(e.target.value)}>
+          <option value="">Select a fund</option>
+          {funds.map((fund) => (
+            <option key={fund.id} value={fund.id}>
+              {fund.name} - {fund.min_amount}
+            </option>
+          ))}
+        </select>
       </div>
       <div>
-        <label>Amount:</label>
-        <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
+        <label htmlFor="amount">Amount:</label>
+        <input type="number" id="amount" value={amount} onChange={(e) => setAmount(e.target.value)} />
       </div>
       <div>
         <label>Notification:</label>

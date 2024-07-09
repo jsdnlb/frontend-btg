@@ -1,4 +1,3 @@
-// src/components/BackButton.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -7,7 +6,7 @@ function BackButton() {
 
   return (
     <button onClick={() => navigate('/')} style={styles.button}>
-      Volver al Home
+    Home
     </button>
   );
 }
