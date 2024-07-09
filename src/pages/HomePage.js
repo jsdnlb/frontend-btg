@@ -10,6 +10,7 @@ function HomePage() {
           <li><Link to="/subscribe">Subscribe to a Fund</Link></li>
           <li><Link to="/cancel">Cancel a Subscription</Link></li>
           <li><Link to="/transactions">View Transaction History</Link></li>
+          <li><Link to="/clients">View Clients</Link></li> 
         </ul>
       </nav>
     </div>

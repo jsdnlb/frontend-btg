@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage';
 import SubscribePage from './pages/SubscribePage';
 import CancelPage from './pages/CancelPage';
 import TransactionsPage from './pages/TransactionsPage';
+import ClientsPage from './pages/ClientsPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/subscribe" element={<SubscribePage />} />
         <Route path="/cancel" element={<CancelPage />} />
         <Route path="/transactions" element={<TransactionsPage />} />
+        <Route path="/clients" element={<ClientsPage />} />
       </Routes>
     </Router>
   );
