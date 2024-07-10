@@ -19,7 +19,7 @@ function TransactionsList() {
   }, []);
 
   return (
-    <div>
+    <div className="table-container">
       <h2>Transactions List</h2>
       <table>
         <thead>

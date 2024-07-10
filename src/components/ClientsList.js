@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import API_BASE_URL from '../config';
-
+import '../styles/TableStyles.css';
 
 function ClientsList() {
   const [clients, setClients] = useState([]);
@@ -20,7 +20,7 @@ function ClientsList() {
   }, []);
 
   return (
-    <div>
+    <div className="table-container">
       <h2>Clients List</h2>
       <table>
         <thead>
@@ -34,7 +34,7 @@ function ClientsList() {
           </tr>
         </thead>
         <tbody>
-          {clients.map(client => (
+          {clients.map((client) => (
             <tr key={client.id}>
               <td>{client.id}</td>
               <td>{client.name}</td>

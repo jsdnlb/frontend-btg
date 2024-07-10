@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import '../styles/TableStyles.css';
 
 function TransactionHistory({ client_id }) {
   const [transactions, setTransactions] = useState([]);
@@ -21,7 +22,7 @@ function TransactionHistory({ client_id }) {
     <div>
       <h2>Transaction History</h2>
       <ul>
-        {transactions.map(transaction => (
+        {transactions.map((transaction) => (
           <li key={transaction.Id}>
             {transaction.Fecha}: {transaction.Tipo} - {transaction.Monto}
           </li>

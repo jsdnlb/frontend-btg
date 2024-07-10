@@ -13,9 +13,10 @@ function BackButton() {
 
 const styles = {
   button: {
-    marginBottom: '20px',
+    width: '100px',
+    margin: '10px',
     padding: '10px 20px',
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#11408C',
     color: 'white',
     border: 'none',
     borderRadius: '5px',

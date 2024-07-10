@@ -1,21 +1,41 @@
+// src/components/NavBar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/NavStyles.css'; // Importa el archivo CSS
 
-function HomePage() {
+function NavBar() {
   return (
-    <div>
-      <h1>Investment Platform</h1>
-      <nav>
-        <ul>
-          <li><Link to="/subscribe">Subscribe to a Fund</Link></li>
-          <li><Link to="/cancel">Cancel a Subscription</Link></li>
-          <li><Link to="/transactions">View Transaction History</Link></li>
-          <li><Link to="/clients">View Clients</Link></li> 
-          <li><Link to="/funds">View Funds</Link></li> 
-        </ul>
-      </nav>
-    </div>
+    <nav>
+      <h1>Investment Platform - BTG Pactual</h1>
+      <ul>
+        <li>
+          <Link to="/subscribe">
+            <button>Subscribe to a Fund</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/cancel">
+            <button>Cancel a Subscription</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/transactions">
+            <button>View Transaction History</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/clients">
+            <button>View Clients</button>
+          </Link>
+        </li>
+        <li>
+          <Link to="/funds">
+            <button>View Funds</button>
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
 
-export default HomePage;
+export default NavBar;

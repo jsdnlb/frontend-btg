@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import API_BASE_URL from '../config';
+import '../styles/TableStyles.css'; 
 
 function FundsList() {
   const [funds, setFunds] = useState([]);
@@ -19,7 +20,7 @@ function FundsList() {
   }, []);
 
   return (
-    <div>
+    <div className="table-container">
       <h2>Funds List</h2>
       <table>
         <thead>

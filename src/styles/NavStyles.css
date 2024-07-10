@@ -1,0 +1,38 @@
+nav {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  nav li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  nav button {
+    background-color: #11408C;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition-duration: 0.4s;
+  }
+  
+  nav button:hover {
+    background-color: rgba(24, 68, 139, 0.575)
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+  }
